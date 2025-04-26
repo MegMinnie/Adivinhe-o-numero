@@ -23,11 +23,8 @@ Adivinhe o número
 
 ## Screenshots
 
- <br>
-![tela 1 ](tela1.png)
-<br><br>
-![tela 2 ](tela2.png)
-<br> <br>
-![tela 3 ](tela3.png)
+![tela1](https://github.com/user-attachments/assets/8908149c-5661-4642-aed7-cf9f9e02cf88)
 
-</div>
+![tela2](https://github.com/user-attachments/assets/45ee70f0-5cd8-4ad5-8e59-03a83a00059d)
+
+![tela3](https://github.com/user-attachments/assets/9675681e-5006-43ac-901d-9d86b739d33a)

@@ -3,9 +3,10 @@
 Adivinhe o número
 </h1>
   <div>
-    <img src="https://img.shields.io/static/v1?label=HTML5y&message=5.2&color=red&style=for-the-badge&logo=HTML5"/> 
+    <img src="https://img.shields.io/static/v1?label=HTML5&message=5.2&color=red&style=for-the-badge&logo=HTML5"/> 
     <img src="https://img.shields.io/static/v1?label=JavaScripty&message=5.1&color=purple&style=for-the-badge&logo=JavaScript"/>
     <img src="https://img.shields.io/static/v1?label=CSS3&message=5.1&color=indigo&style=for-the-badge&logo=CSS3"/>
+    <img src="https://img.shields.io/static/v1?label=License&message=5.1&color=gray&style=for-the-badge&logo=License"/>
       </div><br>
 </div>
 
@@ -19,3 +20,14 @@ Adivinhe o número
   ## Como Acessar a Aplicação
 <p>Acesse a aplicação por meio do link: <a href="https://megminnie.github.io/Adivinhe-o-numero/
 "_blank">clique aqui</a></p>
+
+## Screenshots
+
+ <br>
+![tela 1 ](tela1.png)
+<br><br>
+![tela 2 ](tela2.png)
+<br> <br>
+![tela 3 ](tela3.png)
+
+</div>

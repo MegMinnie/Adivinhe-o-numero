@@ -8,55 +8,69 @@ let numeroSorteado = 0;
 let msg;
 let tentativas = 0;
 const maxTentativas = 10;
-
+let fimDeJogo = false;
 function sortear() {
-  let min = 1;
-  let max = 100;
-  let dif = max - min;
-  let aleatorio = Math.random();
-  numeroSorteado = min + Math.trunc(dif * aleatorio);
+    let min = 1;
+    let max = 100;
+    let dif = max - min;
+    let aleatorio = Math.random();
+    numeroSorteado = min + Math.trunc(dif * aleatorio);
+}
+
+function resetarJogo() {
+    tentativas = 0;
+    fimDeJogo = false;
+    sortear();
+    borda.style.border = "none";
+    botao.innerHTML = "Enviar Palpite";
+    botao.style.backgroundColor = "";
+    botao.style.width = "";
+    inputPalpite.value = "";
+    numeroTentativa.innerHTML = "";
+    saida.innerHTML = "";
 }
 
 sortear();
 
 botao.addEventListener("click", function jogar() {
-  const palpite = Number(inputPalpite.value);
-  tentativas += 1;
+    if (fimDeJogo) {
+        resetarJogo();
+        return;
+    }
 
-  if (palpite < numeroSorteado) {
-    msg = `Seu palpite está muito baixo!`;
-    borda.style.border = "5px solid red";
-    botao.innerHTML = `Errado!`;
-    botao.style.backgroundColor = `red`;
-    botao.style.width = `70%`;
-    numeroTentativa.innerHTML = `Números de tentativas: ${tentativas}`;
-  } else if (palpite > numeroSorteado) {
-    msg = `Seu palpite está muito alto!`;
-    borda.style.border = "5px solid red";
-    botao.style.backgroundColor = `red`;
-    botao.style.width = `70%`;
-    botao.innerHTML = `Errado!`;
-    numeroTentativa.innerHTML = `Número de tentativas: ${tentativas}`;
-  } else {
-    msg = `Parabéns, você acertou!`;
-    borda.style.border = "5px solid green";
-    botao.innerHTML = `Fim do jogo!`;
-    botao.style.backgroundColor = `green`;
-    botao.style.width = `70%`;
-    tentativas = 0;
-    sortear();
-  }
+    const palpite = Number(inputPalpite.value);
+    tentativas += 1;
 
-  if (tentativas >= maxTentativas && palpite !== numeroSorteado) {
-    msg = `Você atingiu o limite de tentativas, o número era ${numeroSorteado}. Fim do jogo!`;
-    tentativas = 0;
-    borda.style.border = "5px solid red";
-    botao.innerHTML = `Fim do jogo!`;
-    botao.style.backgroundColor = `red`;
-    botao.style.width = `70%`;
+    if (palpite < numeroSorteado) {
+        msg = `Seu palpite está muito baixo!`;
+        borda.style.border = "5px solid red";
+        botao.innerHTML = `Errado!`;
+        botao.style.backgroundColor = `red`;
 
-    sortear();
-  }
+        numeroTentativa.innerHTML = `Número de tentativas: ${tentativas}`;
+    } else if (palpite > numeroSorteado) {
+        msg = `Seu palpite está muito alto!`;
+        borda.style.border = "5px solid red";
+        botao.innerHTML = `Errado!`;
+        botao.style.backgroundColor = `red`;
 
-  saida.innerHTML = `<b>Você falou ${palpite}. ${msg}</b>`;
+        numeroTentativa.innerHTML = `Número de tentativas: ${tentativas}`;
+    } else {
+        msg = `Parabéns, você acertou!`;
+        borda.style.border = "5px solid green";
+        botao.innerHTML = `Jogar Novamente`;
+        botao.style.backgroundColor = `green`;
+        fimDeJogo = true;
+    }
+
+    if (tentativas >= maxTentativas && palpite !== numeroSorteado) {
+        msg = `Você atingiu o limite de tentativas, o número era ${numeroSorteado}. Fim do jogo!`;
+        borda.style.border = "5px solid red";
+        botao.innerHTML = `Jogar Novamente`;
+        botao.style.backgroundColor = `red`;
+        botao.style.width = `70%`;
+        fimDeJogo = true;
+    }
+
+    saida.innerHTML = `<b>Você falou ${palpite}. ${msg}</b>`;
 });
